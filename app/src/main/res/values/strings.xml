@@ -1,0 +1,158 @@
+<resources>
+    <string name="app_name">Chuo Sokoni</string>
+    <string name="app_tagline">Your Business, Your Opportunity</string>
+    <string name="campus_enterprise_network">CAMPUS ENTERPRISE NETWORK</string>
+    <string name="built_for_student_ambition">Built for student ambition</string>
+    <string name="splash_headline">Start small. Grow together.</string>
+    <string name="splash_subtitle">Buy, sell, fund and grow trusted student businesses across Tanzania.</string>
+
+    <!-- Splash features -->
+    <string name="feature_discover_products">Discover campus-made products</string>
+    <string name="feature_fund_inventory">Fund Inventory with clearer risk</string>
+    <string name="feature_pay_partners">Pay through licensed partners</string>
+
+    <!-- Buttons -->
+    <string name="get_started">Get Started</string>
+    <string name="create_account_btn">Create account</string>
+    <string name="already_have_account_btn">I already have an account</string>
+
+    <!-- Registration -->
+    <string name="create_account">Create account</string>
+    <string name="register_subtitle">Sign up to Chuo Sokoni</string>
+    <string name="full_name">Full name</string>
+    <string name="password">Password</string>
+    <string name="login_prompt">Already have an account? Login</string>
+
+    <!-- Registration / Choose Role (Screen 02/16) -->
+    <string name="access_and_identity">ACCESS &amp; IDENTITY</string>
+    <string name="step_indicator">02 / 16</string>
+    <string name="choose_your_role">Choose your role</string>
+    <string name="role_subtitle">Your workspace and checks adapt to what you do.</string>
+
+    <string name="role_customer_title">Customer</string>
+    <string name="role_customer_desc">Shop verified student products and track orders.</string>
+
+    <string name="role_seller_title">Seller</string>
+    <string name="role_seller_desc">List products, fulfil orders and receive proceeds.</string>
+
+    <string name="role_investor_title">Investor</string>
+    <string name="role_investor_desc">Acquire approved wholesale stock for managed resale.</string>
+
+    <string name="role_agent_title">Sales &amp; Growth Agent</string>
+    <string name="role_agent_desc">Refer active users and earn on qualifying sales.</string>
+
+    <string name="personal_details">Personal details</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="sample_first_name">Asha</string>
+    <string name="sample_last_name">Mushi</string>
+    <string name="phone_number">Phone number</string>
+    <string name="sample_phone">+255 754 123 456</string>
+    <string name="sample_password">password123</string>
+    <string name="sample_new_password">newsecurepass</string>
+    <string name="role_checks">Role checks</string>
+    <string name="role_checks_info">Seller, Investor and Agent accounts may require identity or business verification before key actions unlock.</string>
+    <string name="continue_to_referral">Continue to referral</string>
+
+    <!-- Referral Code Entry (Screen 03/16) -->
+    <string name="connect_your_referral">Connect your referral</string>
+    <string name="referral_header_subtitle">A valid personal-agent code or CHUO default is required.</string>
+    <string name="every_account_connected">Every account starts connected.</string>
+    <string name="every_account_connected_desc">This helps us attribute support fairly and keeps growth transparent.</string>
+    <string name="referral_code">Referral code</string>
+    <string name="sample_referral_code">AMINA-UDSM-24</string>
+    <string name="code_verified">Code verified</string>
+    <string name="agent_verified_name">Amina Joseph · UDSM Growth Agent</string>
+    <string name="no_personal_code">No personal code?</string>
+    <string name="no_personal_code_desc">Use CHUO to continue with the default code.</string>
+    <string name="chuo_badge_text">CHUO</string>
+    <string name="commission_info_title">Commission starts after value is created</string>
+    <string name="commission_info_desc">Registration alone earns no agent commission. The target is TZS 500 per completed Direct Retail sale.</string>
+    <string name="use_verified_code">✓ Use verified code</string>
+    <string name="use_chuo_default">Use CHUO default</string>
+
+    <!-- Login (Screen 04/16) -->
+    <string name="karibu_tena">Karibu tena.</string>
+    <string name="welcome_campus_marketplace">Welcome back to your campus marketplace.</string>
+    <string name="sign_in_securely">Sign in securely</string>
+    <string name="continue_with_otp">Continue with one-time code</string>
+    <string name="account_protected">Your account, protected</string>
+    <string name="account_protected_desc">We never ask for your mobile-money PIN. Payments are completed with licensed payment partners.</string>
+    <string name="new_to_chuosokoni">New to Chuo Sokoni? </string>
+    <string name="create_account_link">Create account</string>
+
+    <!-- Forgot Password (Screen 05/16) -->
+    <string name="forgot_password_title">Forgot password?</string>
+    <string name="recover_access_pilot">Recover access · Mzumbe University pilot</string>
+    <string name="lets_get_you_back_in">Let’s get you back in</string>
+    <string name="forgot_password_desc">Use the phone number linked to your Chuo Sokoni account.</string>
+    <string name="registered_phone_number">Registered phone number</string>
+    <string name="edit">EDIT</string>
+    <string name="what_happens_next">What happens next</string>
+    <string name="recovery_step_1">We\'ll send recovery instructions to your registered contact if it matches an account.</string>
+    <string name="recovery_step_2">Follow the verification step before choosing a new password.</string>
+    <string name="keep_your_account_safe">Keep your account safe</string>
+    <string name="account_safe_desc">Never share your recovery code, password or mobile-money PIN. Chuo Sokoni support will not ask for them.</string>
+    <string name="no_longer_access_number">I no longer have access to this number</string>
+    <string name="send_recovery_instructions">Send recovery instructions</string>
+    <string name="back_to_sign_in">Back to sign in</string>
+
+    <!-- Reset Password (Screen 06/16) -->
+    <string name="reset_password_title">Reset password</string>
+    <string name="recovery_verification_complete">Recovery verification complete</string>
+    <string name="choose_a_new_password">Choose a new password</string>
+    <string name="account_masked_phone">Account: +255 754 ••• 456</string>
+    <string name="new_password">New password</string>
+    <string name="confirm_new_password">Confirm new password</string>
+    <string name="show">SHOW</string>
+    <string name="password_checks">Password checks</string>
+    <string name="check_new_password_entered">New password entered</string>
+    <string name="check_passwords_match">Passwords match</string>
+    <string name="check_different_previous">Different from your previous password</string>
+    <string name="referral_stays_connected">Your referral stays connected</string>
+    <string name="referral_stays_connected_desc">Resetting your password does not change permanent referral attribution or your account approval status.</string>
+    <string name="save_new_password">Save new password</string>
+    <string name="cancel_return_to_sign_in">Cancel and return to sign in</string>
+
+    <!-- Shared / Public Portal Additional Screens (Account Status, Profile & Settings, Notifications) -->
+    <string name="account_status_title">Account status</string>
+    <string name="account_status_subtitle">Your account verification progress</string>
+    <string name="status_active_verified">Status: Active / Verified</string>
+    <string name="account_access_desc">You have full access to Chuo Sokoni campus marketplace features.</string>
+    <string name="continue_to_dashboard">Continue to dashboard</string>
+    <string name="profile_settings_title">Profile &amp; settings</string>
+    <string name="log_out">Log out</string>
+    <string name="notifications_title">Notifications</string>
+    <string name="notifications_subtitle">Stay updated with your orders &amp; alerts</string>
+
+    <!-- Referral Code Old / Misc -->
+    <string name="referral_code_title">Referral Code</string>
+    <string name="referral_code_subtitle">Enter your referral code (optional)</string>
+    <string name="referral_code_hint">e.g. CS123456</string>
+    <string name="referral_code_info">Ask a friend or agent for a referral code to get special benefits.</string>
+    <string name="btn_continue">Continue</string>
+    <string name="skip_for_now">Skip for now</string>
+
+    <!-- OTP Verify -->
+    <string name="otp_verification">OTP Verification</string>
+    <string name="otp_subtitle">Enter the 4-digit code sent to your phone</string>
+    <string name="enter_otp">Enter 4-Digit Code</string>
+    <string name="verify_code">Verify Code</string>
+    <string name="resend_code">Resend Code</string>
+
+    <!-- Login Old -->
+    <string name="welcome_back">Welcome Back</string>
+    <string name="login_subtitle">Log in to your account</string>
+    <string name="phone_or_email">Phone Number or Email</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="login">Login</string>
+    <string name="register_prompt">Don\'t have an account? Register</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_welcome">Welcome to Chuo Sokoni</string>
+    <string name="onboarding_desc">Commerce, investment, and sales platform for student entrepreneurship.</string>
+    <string name="feature_1_text">✓  Explore Student Courses &amp; Jobs</string>
+    <string name="feature_2_text">✓  Buy &amp; Sell Products/Services</string>
+    <string name="feature_3_text">✓  Build Startup Networks</string>
+    <string name="feature_4_text">✓  Get Real-time Notifications</string>
+</resources>

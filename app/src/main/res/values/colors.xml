@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="logo_gold">#FFB300</color>
+    <color name="logo_navy">#0D1B2A</color>
+    <color name="backgroundDark">#0D102A</color>
+    <color name="backgroundLight">#F8F9FA</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="onPrimary">#0D1B2A</color>
+    <color name="onBackgroundDark">#FFFFFF</color>
+    <color name="onBackgroundLight">#0D1B2A</color>
+    <color name="textSecondary">#607D8B</color>
+    <color name="divider">#CFD8DC</color>
+</resources>

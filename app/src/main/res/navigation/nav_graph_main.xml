@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/mainDashboardFragment">
+
+    <fragment
+        android:id="@+id/mainDashboardFragment"
+        android:name="com.chuosokonifrontend.ui.main.MainDashboardFragment"
+        android:label="Dashboard / Role Selector">
+        <action
+            android:id="@+id/action_dashboard_to_customerFlow"
+            app:destination="@id/customerGraph" />
+        <action
+            android:id="@+id/action_dashboard_to_sellerFlow"
+            app:destination="@id/sellerGraph" />
+        <action
+            android:id="@+id/action_dashboard_to_investorFlow"
+            app:destination="@id/investorGraph" />
+        <action
+            android:id="@+id/action_dashboard_to_agentFlow"
+            app:destination="@id/agentGraph" />
+        <action
+            android:id="@+id/action_dashboard_to_adminFlow"
+            app:destination="@id/adminGraph" />
+    </fragment>
+
+    <!-- Customer Flow -->
+    <navigation android:id="@+id/customerGraph" app:startDestination="@id/customerDashboardFragment">
+        <fragment
+            android:id="@+id/customerDashboardFragment"
+            android:name="com.chuosokonifrontend.ui.customer.CustomerDashboardFragment"
+            android:label="Customer Dashboard">
+            <action
+                android:id="@+id/action_customer_to_browse"
+                app:destination="@id/browseSearchFragment" />
+            <action
+                android:id="@+id/action_customer_to_cart"
+                app:destination="@id/cartFragment" />
+            <action
+                android:id="@+id/action_customer_to_orders"
+                app:destination="@id/orderTrackingFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/browseSearchFragment"
+            android:name="com.chuosokonifrontend.ui.customer.BrowseSearchFragment"
+            android:label="Browse &amp; Search">
+            <action
+                android:id="@+id/action_browse_to_productDetails"
+                app:destination="@id/productDetailsFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/productDetailsFragment"
+            android:name="com.chuosokonifrontend.ui.customer.ProductDetailsFragment"
+            android:label="Product Details" />
+        <fragment
+            android:id="@+id/cartFragment"
+            android:name="com.chuosokonifrontend.ui.customer.CartFragment"
+            android:label="Cart">
+            <action
+                android:id="@+id/action_cart_to_checkout"
+                app:destination="@id/checkoutFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/checkoutFragment"
+            android:name="com.chuosokonifrontend.ui.customer.CheckoutFragment"
+            android:label="Checkout">
+            <action
+                android:id="@+id/action_checkout_to_payment"
+                app:destination="@id/paymentFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/paymentFragment"
+            android:name="com.chuosokonifrontend.ui.customer.PaymentFragment"
+            android:label="Payment" />
+        <fragment
+            android:id="@+id/orderTrackingFragment"
+            android:name="com.chuosokonifrontend.ui.customer.OrderTrackingFragment"
+            android:label="Order Tracking" />
+    </navigation>
+
+    <!-- Seller Flow -->
+    <navigation android:id="@+id/sellerGraph" app:startDestination="@id/sellerDashboardFragment">
+        <fragment
+            android:id="@+id/sellerDashboardFragment"
+            android:name="com.chuosokonifrontend.ui.seller.SellerDashboardFragment"
+            android:label="Seller Dashboard" />
+    </navigation>
+
+    <!-- Investor Flow -->
+    <navigation android:id="@+id/investorGraph" app:startDestination="@id/investorDashboardFragment">
+        <fragment
+            android:id="@+id/investorDashboardFragment"
+            android:name="com.chuosokonifrontend.ui.investor.InvestorDashboardFragment"
+            android:label="Investor Dashboard" />
+    </navigation>
+
+    <!-- Agent Flow -->
+    <navigation android:id="@+id/agentGraph" app:startDestination="@id/agentDashboardFragment">
+        <fragment
+            android:id="@+id/agentDashboardFragment"
+            android:name="com.chuosokonifrontend.ui.agent.AgentDashboardFragment"
+            android:label="Agent Dashboard" />
+    </navigation>
+
+    <!-- Admin Flow -->
+    <navigation android:id="@+id/adminGraph" app:startDestination="@id/adminDashboardFragment">
+        <fragment
+            android:id="@+id/adminDashboardFragment"
+            android:name="com.chuosokonifrontend.ui.admin.AdminDashboardFragment"
+            android:label="Admin Dashboard" />
+    </navigation>
+
+</navigation>
