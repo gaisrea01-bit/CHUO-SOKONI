@@ -27,8 +27,10 @@
             android:id="@+id/action_login_to_passwordRecovery"
             app:destination="@id/passwordRecoveryFragment" />
         <action
-            android:id="@+id/action_login_to_accountStatus"
-            app:destination="@id/accountStatusFragment" />
+            android:id="@+id/action_login_to_customerDash"
+            app:destination="@id/customerDashboardFragment"
+            app:popUpTo="@id/nav_graph_auth"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -73,6 +75,68 @@
     <fragment
         android:id="@+id/onboardingFragment"
         android:name="com.chuosokonifrontend.ui.auth.OnboardingFragment"
-        android:label="Onboarding / Welcome" />
+        android:label="Onboarding / Welcome">
+        <action
+            android:id="@+id/action_onboarding_to_customerDash"
+            app:destination="@id/customerDashboardFragment"
+            app:popUpTo="@id/nav_graph_auth"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- Dashboard & Main Destinations -->
+    <fragment
+        android:id="@+id/customerDashboardFragment"
+        android:name="com.chuosokonifrontend.ui.customer.CustomerDashboardFragment"
+        android:label="Home">
+        <deepLink app:uri="chuosokoni://customer/dashboard" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/sellerDashboardFragment"
+        android:name="com.chuosokonifrontend.ui.seller.SellerDashboardFragment"
+        android:label="Seller Dashboard">
+        <deepLink app:uri="chuosokoni://seller/dashboard" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/investorDashboardFragment"
+        android:name="com.chuosokonifrontend.ui.investor.InvestorDashboardFragment"
+        android:label="Investor Dashboard">
+        <deepLink app:uri="chuosokoni://investor/dashboard" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/agentDashboardFragment"
+        android:name="com.chuosokonifrontend.ui.agent.AgentDashboardFragment"
+        android:label="Agent Dashboard">
+        <deepLink app:uri="chuosokoni://agent/dashboard" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/adminDashboardFragment"
+        android:name="com.chuosokonifrontend.ui.admin.AdminDashboardFragment"
+        android:label="Admin Dashboard">
+        <deepLink app:uri="chuosokoni://admin/dashboard" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/browseSearchFragment"
+        android:name="com.chuosokonifrontend.ui.customer.BrowseSearchFragment"
+        android:label="Browse" />
+
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.chuosokonifrontend.ui.customer.CartFragment"
+        android:label="Cart" />
+
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.chuosokonifrontend.ui.auth.NotificationsFragment"
+        android:label="Notifications" />
+
+    <fragment
+        android:id="@+id/profileSettingsFragment"
+        android:name="com.chuosokonifrontend.ui.auth.ProfileSettingsFragment"
+        android:label="Profile &amp; Settings" />
 
 </navigation>
