@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/investorDashboardFragment"
+        android:icon="@drawable/baseline_dashboard_24"
+        android:title="Dashboard" />
+
+    <item
+        android:id="@+id/wholesaleOpportunitiesFragment"
+        android:icon="@drawable/baseline_shopping_bag_24"
+        android:title="Wholesale" />
+
+    <item
+        android:id="@+id/managedInventoryFragment"
+        android:icon="@drawable/baseline_inventory_24"
+        android:title="Inventory" />
+
+    <item
+        android:id="@+id/resellerDashboardFragment"
+        android:icon="@drawable/baseline_payment_24"
+        android:title="Returns" />
+
+    <item
+        android:id="@+id/investorDisputesFragment"
+        android:icon="@drawable/baseline_help_24"
+        android:title="Support" />
+
+</menu>

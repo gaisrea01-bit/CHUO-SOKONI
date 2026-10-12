@@ -152,61 +152,6 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Admin Modules Management Card -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardAdminModules"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="2dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingVertical="12dp"
-                        android:text="Verification Queues"
-                        android:textColor="@color/logo_navy"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#E0E0E0" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingVertical="12dp"
-                        android:text="User &amp; Role Management"
-                        android:textColor="@color/logo_navy"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#E0E0E0" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingVertical="12dp"
-                        android:text="Transaction Monitoring"
-                        android:textColor="@color/logo_navy"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
             <!-- Quick Action Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnAdminReports"

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/backgroundLight"
-    android:padding="24dp">
+    android:padding="20dp">
 
     <TextView
         android:id="@+id/tvManagedInvTitle"
@@ -14,15 +14,22 @@
         android:layout_marginTop="32dp"
         android:text="Managed Inventory"
         android:textColor="@color/logo_navy"
-        android:textSize="28sp"
+        android:textSize="26sp"
         android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Track stock holdings and warehouse status"
+        android:layout_marginTop="2dp"
+        android:text="Track stock holdings &amp; warehouse inventory"
         android:textColor="@color/textSecondary"
-        android:textSize="14sp" />
+        android:textSize="13sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewManagedInventory"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1" />
 
 </LinearLayout>

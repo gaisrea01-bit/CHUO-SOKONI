@@ -9,13 +9,13 @@ import tz.ac.mzumbe.chuosokoni.model.InvestorReturn;
 public interface PaymentRefundRepository
         extends JpaRepository<InvestorReturn, Integer> {
 
-    List<InvestorReturn> findByTransactionTransactionId(Integer transactionId);
+    List<InvestorReturn> findByTransaction_TransactionId(Integer transactionId);
 
-    List<InvestorReturn> findByOrderOrderId(Integer orderId);
+    List<InvestorReturn> findByOrder_OrderId(Integer orderId);
 
     List<InvestorReturn> findByStatus(String status);
 
-    List<InvestorReturn> findByOrderOrderIdAndStatus(
+    List<InvestorReturn> findByOrder_OrderIdAndStatus(
             Integer orderId,
             String status
     );

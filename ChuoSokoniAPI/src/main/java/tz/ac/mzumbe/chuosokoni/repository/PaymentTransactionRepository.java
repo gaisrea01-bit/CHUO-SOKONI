@@ -9,13 +9,13 @@ import tz.ac.mzumbe.chuosokoni.model.PaymentTransaction;
 public interface PaymentTransactionRepository
         extends JpaRepository<PaymentTransaction, Integer> {
 
-    List<PaymentTransaction> findByPaymentPaymentId(Integer paymentId);
+    List<PaymentTransaction> findByPayment_PaymentId(Integer paymentId);
 
     List<PaymentTransaction> findByTransactionId(String transactionId);
 
     List<PaymentTransaction> findByStatus(String status);
 
-    List<PaymentTransaction> findByPaymentPaymentIdAndStatus(
+    List<PaymentTransaction> findByPayment_PaymentIdAndStatus(
             Integer paymentId,
             String status
     );

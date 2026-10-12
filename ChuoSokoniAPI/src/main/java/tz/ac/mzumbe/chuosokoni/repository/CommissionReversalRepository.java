@@ -9,7 +9,7 @@ import tz.ac.mzumbe.chuosokoni.model.CommissionReversal;
 public interface CommissionReversalRepository
         extends JpaRepository<CommissionReversal, Integer> {
 
-    List<CommissionReversal> findByCommissionCommissionId(
+    List<CommissionReversal> findByCommission_CommissionId(
             Integer commissionId
     );
 

@@ -5,13 +5,13 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="24dp">
 
     <!-- Circle-shaped Onboarding Illustration Container -->
     <androidx.cardview.widget.CardView
         android:layout_width="220dp"
         android:layout_height="220dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="48dp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="110dp"
         app:cardElevation="4dp">
@@ -39,10 +39,10 @@
         android:id="@+id/tvSlideDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Connect • Invest • Grow"
-        android:textColor="@color/logo_gold"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="Connect • Invest • Grow your student enterprise and campus business effortlessly."
+        android:textColor="@color/textSecondary"
+        android:textSize="15sp" />
 
 </LinearLayout>

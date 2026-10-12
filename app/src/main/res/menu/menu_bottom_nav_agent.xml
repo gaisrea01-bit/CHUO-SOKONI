@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/agentDashboardFragment"
+        android:icon="@drawable/baseline_dashboard_24"
+        android:title="Dashboard" />
+
+    <item
+        android:id="@+id/agentReferralLinkFragment"
+        android:icon="@drawable/baseline_qr_code_24"
+        android:title="Link" />
+
+    <item
+        android:id="@+id/referredUsersFragment"
+        android:icon="@drawable/baseline_person_24"
+        android:title="Referrals" />
+
+    <item
+        android:id="@+id/agentCommissionsFragment"
+        android:icon="@drawable/baseline_payment_24"
+        android:title="Commissions" />
+
+    <item
+        android:id="@+id/agentSupportFragment"
+        android:icon="@drawable/baseline_help_24"
+        android:title="Support" />
+
+</menu>

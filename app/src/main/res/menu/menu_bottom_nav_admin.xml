@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/adminDashboardFragment"
+        android:icon="@drawable/baseline_dashboard_24"
+        android:title="Dashboard" />
+
+    <item
+        android:id="@+id/adminVerificationQueuesFragment"
+        android:icon="@drawable/baseline_verified_user_24"
+        android:title="Queues" />
+
+    <item
+        android:id="@+id/userRoleManagementFragment"
+        android:icon="@drawable/baseline_manage_accounts_24"
+        android:title="Users" />
+
+    <item
+        android:id="@+id/transactionMonitoringFragment"
+        android:icon="@drawable/baseline_payment_24"
+        android:title="Transactions" />
+
+    <item
+        android:id="@+id/reportsAnalyticsFragment"
+        android:icon="@drawable/baseline_track_changes_24"
+        android:title="Reports" />
+
+</menu>

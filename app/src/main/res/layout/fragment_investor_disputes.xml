@@ -5,24 +5,43 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/backgroundLight"
-    android:padding="24dp">
+    android:padding="20dp">
 
     <TextView
         android:id="@+id/tvInvDisputesTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Disputes &amp; Support"
+        android:text="Investor Disputes &amp; Support"
         android:textColor="@color/logo_navy"
-        android:textSize="28sp"
+        android:textSize="26sp"
         android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Raise and track investor inquiries"
+        android:layout_marginTop="2dp"
+        android:text="Escalate inquiries regarding stock &amp; capital returns"
         android:textColor="@color/textSecondary"
-        android:textSize="14sp" />
+        android:textSize="13sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewInvestorDisputes"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnRaiseInvestorDispute"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginBottom="24dp"
+        android:text="Raise Investor Dispute"
+        android:textColor="@color/logo_navy"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/logo_gold"
+        app:cornerRadius="28dp" />
 
 </LinearLayout>

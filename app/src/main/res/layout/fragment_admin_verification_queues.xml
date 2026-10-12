@@ -8,7 +8,7 @@
     android:padding="20dp">
 
     <TextView
-        android:id="@+id/tvAdminVerifTitle"
+        android:id="@+id/tvVerifQueueTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -18,18 +18,59 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tvAdminVerifSub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
-        android:text="Pending seller &amp; investor documents"
+        android:text="Review pending user &amp; merchant account approvals"
         android:textColor="@color/textSecondary"
         android:textSize="13sp" />
 
+    <!-- Filter Chips / Category Tabs -->
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollVerifTabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:scrollbars="none">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupVerifStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="All Pending" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sellers" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Investors" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Agents" />
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewVerificationQueue"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:layout_weight="1" />
 
 </LinearLayout>
