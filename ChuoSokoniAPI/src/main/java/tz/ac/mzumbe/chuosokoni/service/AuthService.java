@@ -8,13 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import tz.ac.mzumbe.chuosokoni.model.Role;
-import tz.ac.mzumbe.chuosokoni.model.University;
-import tz.ac.mzumbe.chuosokoni.model.User;
-import tz.ac.mzumbe.chuosokoni.repository.ReferralCodeRepository;
-import tz.ac.mzumbe.chuosokoni.repository.RoleRepository;
-import tz.ac.mzumbe.chuosokoni.repository.UniversityRepository;
-import tz.ac.mzumbe.chuosokoni.repository.UserRepository;
+import tz.ac.mzumbe.chuosokoni.model.*;
+import tz.ac.mzumbe.chuosokoni.repository.*;
 
 @Service
 public class AuthService {
@@ -30,6 +25,15 @@ public class AuthService {
 
     @Autowired
     private ReferralCodeRepository referralCodeRepository;
+
+    @Autowired
+    private SellerRepository sellerRepository;
+
+    @Autowired
+    private InvestorRepository investorRepository;
+
+    @Autowired
+    private CustomerRepository customerRepository;
 
     @Autowired
     private AgentService agentService;
@@ -105,16 +109,32 @@ public class AuthService {
 
         User savedUser = userRepository.save(user);
 
-        // Auto-provision agent profile and referral code if registering as AGENT
+        // Auto-provision role profile
         if ("AGENT".equalsIgnoreCase(targetRoleName)) {
             agentService.createAgentProfile(savedUser.getUserId());
+        } else if ("SELLER".equalsIgnoreCase(targetRoleName)) {
+            Seller seller = new Seller();
+            seller.setUser(savedUser);
+            seller.setBusinessName(savedUser.getFullName() + "'s Shop");
+            seller.setVerificationStatus("VERIFIED");
+            sellerRepository.save(seller);
+        } else if ("INVESTOR".equalsIgnoreCase(targetRoleName)) {
+            Investor investor = new Investor();
+            investor.setUser(savedUser);
+            investor.setStatus("ACTIVE");
+            investorRepository.save(investor);
+        } else if ("CUSTOMER".equalsIgnoreCase(targetRoleName)) {
+            Customer customer = new Customer();
+            customer.setUser(savedUser);
+            customer.setCustomerType("STUDENT");
+            customerRepository.save(customer);
         }
 
         Map<String, Object> response = new HashMap<>();
         response.put("userId", savedUser.getUserId());
         response.put("fullName", savedUser.getFullName());
         response.put("email", savedUser.getEmail());
-        response.put("role", savedUser.getRole().getRoleName());
+        response.put("role", savedUser.getRole() != null ? savedUser.getRole().getRoleName() : targetRoleName);
         response.put("status", savedUser.getStatus());
         response.put("message", "User registered successfully.");
 
@@ -159,7 +179,7 @@ public class AuthService {
         response.put("userId", user.getUserId());
         response.put("fullName", user.getFullName());
         response.put("email", user.getEmail());
-        response.put("role", user.getRole().getRoleName());
+        response.put("role", user.getRole() != null ? user.getRole().getRoleName() : "CUSTOMER");
         response.put("accessToken", accessToken);
         response.put("refreshToken", refreshToken);
 
