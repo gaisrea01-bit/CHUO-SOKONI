@@ -8,10 +8,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import com.chuosokonifrontend.R;
 import com.google.android.material.button.MaterialButton;
 
 public class ProductDetailsFragment extends Fragment {
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -21,9 +24,13 @@ public class ProductDetailsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        NavController navController = Navigation.findNavController(view);
         MaterialButton btnAddToCart = view.findViewById(R.id.btnAddToCart);
         if (btnAddToCart != null) {
-            btnAddToCart.setOnClickListener(v -> Toast.makeText(requireContext(), "Added to Cart successfully", Toast.LENGTH_SHORT).show());
+            btnAddToCart.setOnClickListener(v -> {
+                Toast.makeText(requireContext(), "Added to Cart successfully", Toast.LENGTH_SHORT).show();
+                navController.navigate(R.id.action_details_to_cart);
+            });
         }
     }
 }

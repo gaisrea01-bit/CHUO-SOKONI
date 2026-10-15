@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tz.ac.mzumbe.chuosokoni.model.Role;
@@ -33,6 +34,9 @@ public class AuthService {
     @Autowired
     private AgentService agentService;
 
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
     /**
      * Registers a new user and assigns them to the requested role (e.g.,
      * CUSTOMER, AGENT, SELLER, INVESTOR).
@@ -52,7 +56,7 @@ public class AuthService {
         }
 
         if (userRepository.findByEmail(email.trim().toLowerCase()).isPresent()) {
-            throw new IllegalArgumentException("An account with this email already exists.");
+            throw new IllegalArgumentException("An account with this email or phone already exists.");
         }
 
         // Map roleName to Role entity (defaults to CUSTOMER if null or empty)
@@ -61,18 +65,26 @@ public class AuthService {
                                 : "CUSTOMER";
 
         Role role = roleRepository.findByRoleName(targetRoleName)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid role specified: " + targetRoleName));
+                .orElseGet(() -> {
+                    Role defaultRole = new Role();
+                    defaultRole.setRoleName(targetRoleName);
+                    defaultRole.setDescription("Auto-created " + targetRoleName + " role");
+                    return roleRepository.save(defaultRole);
+                });
 
         University university = null;
         if (universityId != null) {
             university = universityRepository.findById(universityId).orElse(null);
         }
+        if (university == null) {
+            university = universityRepository.findAll().stream().findFirst().orElse(null);
+        }
 
         User user = new User();
         user.setFullName(fullName);
         user.setEmail(email.trim().toLowerCase());
-        user.setPasswordHash(password); // In production, wrap with BCryptPasswordEncoder
-        user.setPhone(phoneNumber);
+        user.setPasswordHash(passwordEncoder.encode(password)); // Encode with BCrypt
+        user.setPhone(phoneNumber != null ? phoneNumber.trim() : email);
         user.setUniversity(university);
         user.setRole(role);
         user.setStatus("ACTIVE"); // Default active state
@@ -117,10 +129,22 @@ public class AuthService {
             throw new IllegalArgumentException("Email and password are required.");
         }
 
-        User user = userRepository.findByEmail(email.trim().toLowerCase())
-                .orElseThrow(() -> new SecurityException("Invalid email or password."));
+        String identifier = email.trim().toLowerCase();
+        User user = userRepository.findByEmail(identifier)
+                .or(() -> userRepository.findByPhone(identifier))
+                .orElseThrow(() -> new SecurityException("Invalid email/phone or password."));
 
-        if (!password.equals(user.getPasswordHash())) {
+        boolean passwordMatches = false;
+        if (user.getPasswordHash() != null) {
+            String storedHash = user.getPasswordHash();
+            if (storedHash.startsWith("$2a$") || storedHash.startsWith("$2b$") || storedHash.startsWith("$2y$")) {
+                passwordMatches = passwordEncoder.matches(password, storedHash);
+            } else {
+                passwordMatches = password.equals(storedHash);
+            }
+        }
+
+        if (!passwordMatches) {
             throw new SecurityException("Invalid email or password.");
         }
 

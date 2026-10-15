@@ -2,35 +2,19 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph_auth"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@+id/splashFragment">
 
+    <!-- 1. SHARED / PUBLIC PORTAL FLOW (01 - 09) -->
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.chuosokonifrontend.ui.auth.SplashFragment"
         android:label="Splash / Landing">
         <action
             android:id="@+id/action_splash_to_login"
-            app:destination="@id/loginFragment" />
+            app:destination="@+id/loginFragment" />
         <action
             android:id="@+id/action_splash_to_register"
-            app:destination="@id/registerFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.chuosokonifrontend.ui.auth.LoginFragment"
-        android:label="Login">
-        <action
-            android:id="@+id/action_login_to_register"
-            app:destination="@id/registerFragment" />
-        <action
-            android:id="@+id/action_login_to_passwordRecovery"
-            app:destination="@id/passwordRecoveryFragment" />
-        <action
-            android:id="@+id/action_login_to_customerDash"
-            app:destination="@id/customerDashboardFragment"
-            app:popUpTo="@id/nav_graph_auth"
-            app:popUpToInclusive="true" />
+            app:destination="@+id/registerFragment" />
     </fragment>
 
     <fragment
@@ -39,10 +23,10 @@
         android:label="Registration">
         <action
             android:id="@+id/action_register_to_referralCode"
-            app:destination="@id/referralCodeFragment" />
+            app:destination="@+id/referralCodeFragment" />
         <action
             android:id="@+id/action_register_to_login"
-            app:destination="@id/loginFragment" />
+            app:destination="@+id/loginFragment" />
     </fragment>
 
     <fragment
@@ -51,7 +35,27 @@
         android:label="Referral Code Entry">
         <action
             android:id="@+id/action_referralCode_to_accountStatus"
-            app:destination="@id/accountStatusFragment" />
+            app:destination="@+id/accountStatusFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.chuosokonifrontend.ui.auth.LoginFragment"
+        android:label="Login">
+        <action
+            android:id="@+id/action_login_to_register"
+            app:destination="@+id/registerFragment" />
+        <action
+            android:id="@+id/action_login_to_passwordRecovery"
+            app:destination="@+id/passwordRecoveryFragment" />
+        <action
+            android:id="@+id/action_login_to_accountStatus"
+            app:destination="@+id/accountStatusFragment" />
+        <action
+            android:id="@+id/action_login_to_customerDash"
+            app:destination="@+id/customerDashboardFragment"
+            app:popUpTo="@+id/nav_graph_auth"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -59,8 +63,29 @@
         android:name="com.chuosokonifrontend.ui.auth.PasswordRecoveryFragment"
         android:label="Password Recovery">
         <action
+            android:id="@+id/action_passwordRecovery_to_verifyOtp"
+            app:destination="@+id/verifyOtpFragment" />
+        <action
             android:id="@+id/action_passwordRecovery_to_login"
-            app:destination="@id/loginFragment" />
+            app:destination="@+id/loginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/verifyOtpFragment"
+        android:name="com.chuosokonifrontend.ui.auth.VerifyOtpFragment"
+        android:label="Verify OTP">
+        <action
+            android:id="@+id/action_verifyOtp_to_resetPassword"
+            app:destination="@+id/resetPasswordFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/resetPasswordFragment"
+        android:name="com.chuosokonifrontend.ui.auth.ResetPasswordFragment"
+        android:label="Set New Password">
+        <action
+            android:id="@+id/action_resetPassword_to_login"
+            app:destination="@+id/loginFragment" />
     </fragment>
 
     <fragment
@@ -69,7 +94,7 @@
         android:label="Account Status">
         <action
             android:id="@+id/action_accountStatus_to_onboarding"
-            app:destination="@id/onboardingFragment" />
+            app:destination="@+id/onboardingFragment" />
     </fragment>
 
     <fragment
@@ -78,65 +103,288 @@
         android:label="Onboarding / Welcome">
         <action
             android:id="@+id/action_onboarding_to_customerDash"
-            app:destination="@id/customerDashboardFragment"
-            app:popUpTo="@id/nav_graph_auth"
+            app:destination="@+id/customerDashboardFragment"
+            app:popUpTo="@+id/nav_graph_auth"
             app:popUpToInclusive="true" />
     </fragment>
 
-    <!-- Dashboard & Main Destinations -->
     <fragment
-        android:id="@+id/customerDashboardFragment"
-        android:name="com.chuosokonifrontend.ui.customer.CustomerDashboardFragment"
-        android:label="Home">
-        <deepLink app:uri="chuosokoni://customer/dashboard" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/sellerDashboardFragment"
-        android:name="com.chuosokonifrontend.ui.seller.SellerDashboardFragment"
-        android:label="Seller Dashboard">
-        <deepLink app:uri="chuosokoni://seller/dashboard" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/investorDashboardFragment"
-        android:name="com.chuosokonifrontend.ui.investor.InvestorDashboardFragment"
-        android:label="Investor Dashboard">
-        <deepLink app:uri="chuosokoni://investor/dashboard" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/agentDashboardFragment"
-        android:name="com.chuosokonifrontend.ui.agent.AgentDashboardFragment"
-        android:label="Agent Dashboard">
-        <deepLink app:uri="chuosokoni://agent/dashboard" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/adminDashboardFragment"
-        android:name="com.chuosokonifrontend.ui.admin.AdminDashboardFragment"
-        android:label="Admin Dashboard">
-        <deepLink app:uri="chuosokoni://admin/dashboard" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/browseSearchFragment"
-        android:name="com.chuosokonifrontend.ui.customer.BrowseSearchFragment"
-        android:label="Browse" />
-
-    <fragment
-        android:id="@+id/cartFragment"
-        android:name="com.chuosokonifrontend.ui.customer.CartFragment"
-        android:label="Cart" />
+        android:id="@+id/profileSettingsFragment"
+        android:name="com.chuosokonifrontend.ui.auth.ProfileSettingsFragment"
+        android:label="Profile &amp; Settings" />
 
     <fragment
         android:id="@+id/notificationsFragment"
         android:name="com.chuosokonifrontend.ui.auth.NotificationsFragment"
         android:label="Notifications" />
 
+    <!-- 2. CUSTOMER PORTAL FLOW (10 - 24) -->
     <fragment
-        android:id="@+id/profileSettingsFragment"
-        android:name="com.chuosokonifrontend.ui.auth.ProfileSettingsFragment"
-        android:label="Profile &amp; Settings" />
+        android:id="@+id/customerDashboardFragment"
+        android:name="com.chuosokonifrontend.ui.customer.CustomerDashboardFragment"
+        android:label="Home">
+        <action
+            android:id="@+id/action_customerDash_to_browse"
+            app:destination="@+id/browseSearchFragment" />
+        <action
+            android:id="@+id/action_customerDash_to_cart"
+            app:destination="@+id/cartFragment" />
+        <deepLink app:uri="chuosokoni://customer/dashboard" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/browseSearchFragment"
+        android:name="com.chuosokonifrontend.ui.customer.BrowseSearchFragment"
+        android:label="Browse">
+        <action
+            android:id="@+id/action_browse_to_details"
+            app:destination="@+id/productDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.chuosokonifrontend.ui.customer.ProductDetailsFragment"
+        android:label="Product Details">
+        <action
+            android:id="@+id/action_details_to_cart"
+            app:destination="@+id/cartFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.chuosokonifrontend.ui.customer.CartFragment"
+        android:label="Cart">
+        <action
+            android:id="@+id/action_cart_to_checkout"
+            app:destination="@+id/checkoutFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="com.chuosokonifrontend.ui.customer.CheckoutFragment"
+        android:label="Checkout">
+        <action
+            android:id="@+id/action_checkout_to_payment"
+            app:destination="@+id/paymentFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.chuosokonifrontend.ui.customer.PaymentFragment"
+        android:label="Payment">
+        <action
+            android:id="@+id/action_payment_to_result"
+            app:destination="@+id/paymentResultFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/paymentResultFragment"
+        android:name="com.chuosokonifrontend.ui.customer.PaymentResultFragment"
+        android:label="Payment Result">
+        <action
+            android:id="@+id/action_result_to_orderTracking"
+            app:destination="@+id/orderTrackingFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/orderTrackingFragment"
+        android:name="com.chuosokonifrontend.ui.customer.OrderTrackingFragment"
+        android:label="Order Tracking">
+        <action
+            android:id="@+id/action_tracking_to_receipt"
+            app:destination="@+id/receiptConfirmationFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/receiptConfirmationFragment"
+        android:name="com.chuosokonifrontend.ui.customer.ReceiptConfirmationFragment"
+        android:label="Receipt Confirmation" />
+
+    <!-- 3. SELLER PORTAL FLOW (25 - 40) -->
+    <fragment
+        android:id="@+id/sellerDashboardFragment"
+        android:name="com.chuosokonifrontend.ui.seller.SellerDashboardFragment"
+        android:label="Seller Dashboard">
+        <action
+            android:id="@+id/action_sellerDash_to_productList"
+            app:destination="@+id/sellerProductListFragment" />
+        <deepLink app:uri="chuosokoni://seller/dashboard" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/sellerProductListFragment"
+        android:name="com.chuosokonifrontend.ui.seller.SellerProductListFragment"
+        android:label="Product List">
+        <action
+            android:id="@+id/action_productList_to_addEdit"
+            app:destination="@+id/addEditProductFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addEditProductFragment"
+        android:name="com.chuosokonifrontend.ui.seller.AddEditProductFragment"
+        android:label="Add / Edit Product">
+        <action
+            android:id="@+id/action_addEdit_to_stockPricing"
+            app:destination="@+id/sellerStockPricingFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/sellerStockPricingFragment"
+        android:name="com.chuosokonifrontend.ui.seller.SellerStockPricingFragment"
+        android:label="Images, Stock &amp; Pricing">
+        <action
+            android:id="@+id/action_stockPricing_to_transactionModel"
+            app:destination="@+id/sellerTransactionModelFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/sellerTransactionModelFragment"
+        android:name="com.chuosokonifrontend.ui.seller.SellerTransactionModelFragment"
+        android:label="Choose Model" />
+
+    <fragment
+        android:id="@+id/sellerProfileFragment"
+        android:name="com.chuosokonifrontend.ui.seller.SellerProfileFragment"
+        android:label="Seller Profile" />
+
+    <fragment
+        android:id="@+id/sellerOrdersFragment"
+        android:name="com.chuosokonifrontend.ui.seller.SellerOrdersFragment"
+        android:label="Orders &amp; Fulfillment" />
+
+    <fragment
+        android:id="@+id/sellerSalesProceedsFragment"
+        android:name="com.chuosokonifrontend.ui.seller.SellerSalesProceedsFragment"
+        android:label="Sales Proceeds" />
+
+    <!-- 4. INVESTOR PORTAL FLOW (41 - 51) -->
+    <fragment
+        android:id="@+id/investorDashboardFragment"
+        android:name="com.chuosokonifrontend.ui.investor.InvestorDashboardFragment"
+        android:label="Investor Dashboard">
+        <action
+            android:id="@+id/action_investorDash_to_opportunities"
+            app:destination="@+id/wholesaleOpportunitiesFragment" />
+        <deepLink app:uri="chuosokoni://investor/dashboard" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/wholesaleOpportunitiesFragment"
+        android:name="com.chuosokonifrontend.ui.investor.WholesaleOpportunitiesFragment"
+        android:label="Wholesale Opportunities">
+        <action
+            android:id="@+id/action_opps_to_details"
+            app:destination="@+id/opportunityDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/opportunityDetailsFragment"
+        android:name="com.chuosokonifrontend.ui.investor.OpportunityDetailsFragment"
+        android:label="Opportunity Details">
+        <action
+            android:id="@+id/action_details_to_acquire"
+            app:destination="@+id/acquireStockFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/acquireStockFragment"
+        android:name="com.chuosokonifrontend.ui.investor.AcquireStockFragment"
+        android:label="Acquire Stock?">
+        <action
+            android:id="@+id/action_acquire_to_payment"
+            app:destination="@+id/acquisitionPaymentFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/acquisitionPaymentFragment"
+        android:name="com.chuosokonifrontend.ui.investor.AcquisitionPaymentFragment"
+        android:label="Acquisition Payment">
+        <action
+            android:id="@+id/action_acqPayment_to_confirmation"
+            app:destination="@+id/acquisitionConfirmationFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/acquisitionConfirmationFragment"
+        android:name="com.chuosokonifrontend.ui.investor.AcquisitionConfirmationFragment"
+        android:label="Acquisition Confirmation" />
+
+    <fragment
+        android:id="@+id/managedInventoryFragment"
+        android:name="com.chuosokonifrontend.ui.investor.ManagedInventoryFragment"
+        android:label="Managed Inventory" />
+
+    <fragment
+        android:id="@+id/resellerDashboardFragment"
+        android:name="com.chuosokonifrontend.ui.investor.ResellerDashboardFragment"
+        android:label="Investor Returns" />
+
+    <fragment
+        android:id="@+id/investorDisputesFragment"
+        android:name="com.chuosokonifrontend.ui.investor.InvestorDisputesFragment"
+        android:label="Investor Disputes" />
+
+    <!-- 5. AGENT PORTAL FLOW (52 - 58) -->
+    <fragment
+        android:id="@+id/agentDashboardFragment"
+        android:name="com.chuosokonifrontend.ui.agent.AgentDashboardFragment"
+        android:label="Agent Dashboard">
+        <action
+            android:id="@+id/action_agentDash_to_referralLink"
+            app:destination="@+id/agentReferralLinkFragment" />
+        <deepLink app:uri="chuosokoni://agent/dashboard" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/agentReferralLinkFragment"
+        android:name="com.chuosokonifrontend.ui.agent.AgentReferralLinkFragment"
+        android:label="Referral Code / Link" />
+
+    <fragment
+        android:id="@+id/referredUsersFragment"
+        android:name="com.chuosokonifrontend.ui.agent.ReferredUsersFragment"
+        android:label="Referred Users" />
+
+    <fragment
+        android:id="@+id/agentCommissionsFragment"
+        android:name="com.chuosokonifrontend.ui.agent.AgentCommissionsFragment"
+        android:label="Commissions" />
+
+    <fragment
+        android:id="@+id/agentSupportFragment"
+        android:name="com.chuosokonifrontend.ui.agent.AgentSupportFragment"
+        android:label="Agent Support" />
+
+    <!-- 6. ADMINISTRATOR PORTAL FLOW (59 - 70) -->
+    <fragment
+        android:id="@+id/adminDashboardFragment"
+        android:name="com.chuosokonifrontend.ui.admin.AdminDashboardFragment"
+        android:label="Admin Dashboard">
+        <action
+            android:id="@+id/action_adminDash_to_queues"
+            app:destination="@+id/adminVerificationQueuesFragment" />
+        <deepLink app:uri="chuosokoni://admin/dashboard" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/adminVerificationQueuesFragment"
+        android:name="com.chuosokonifrontend.ui.admin.AdminVerificationQueuesFragment"
+        android:label="Verification Queues" />
+
+    <fragment
+        android:id="@+id/userRoleManagementFragment"
+        android:name="com.chuosokonifrontend.ui.admin.UserRoleManagementFragment"
+        android:label="User &amp; Role Management" />
+
+    <fragment
+        android:id="@+id/transactionMonitoringFragment"
+        android:name="com.chuosokonifrontend.ui.admin.TransactionMonitoringFragment"
+        android:label="Transaction Monitoring" />
+
+    <fragment
+        android:id="@+id/reportsAnalyticsFragment"
+        android:name="com.chuosokonifrontend.ui.admin.ReportsAnalyticsFragment"
+        android:label="Reports &amp; Analytics" />
 
 </navigation>

@@ -15,7 +15,8 @@ import java.math.BigDecimal;
 import java.util.concurrent.TimeUnit;
 
 public class ApiClient {
-    private static final String DEV_BASE_URL = "http://192.168.1.50:8080/";
+    // Computer's active Wi-Fi IP address on your local network
+    private static final String DEV_BASE_URL = "http://192.168.1.192:8080/";
     private static final String PROD_BASE_URL = "https://api.chuosokoni.ac.tz/";
 
     // Toggle to true when deploying to production

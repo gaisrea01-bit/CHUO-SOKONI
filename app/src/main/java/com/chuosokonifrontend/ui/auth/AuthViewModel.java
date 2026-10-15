@@ -6,10 +6,10 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import com.chuosokonifrontend.data.api.AuthAPIService;
-import com.chuosokonifrontend.data.dto.UserDto;
 import com.chuosokonifrontend.data.network.ApiClient;
 import com.chuosokonifrontend.data.network.TokenManager;
 import com.chuosokonifrontend.util.ValidationUtils;
+import java.util.Map;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -59,7 +59,12 @@ public class AuthViewModel extends AndroidViewModel {
                         errorMessage.setValue("Authentication token missing");
                     }
                 } else {
-                    errorMessage.setValue("Invalid credentials or server error");
+                    try {
+                        String err = response.errorBody() != null ? response.errorBody().string() : "Invalid credentials or server error";
+                        errorMessage.setValue("Login failed: " + err);
+                    } catch (Exception e) {
+                        errorMessage.setValue("Invalid credentials or server error");
+                    }
                 }
             }
 
@@ -78,25 +83,27 @@ public class AuthViewModel extends AndroidViewModel {
         }
 
         isLoading.setValue(true);
-        UserDto userDto = new UserDto();
-        userDto.setFullName(fullName);
-        userDto.setPhone(phone);
-        userDto.setEmail(phone + "@chuosokoni.ac.tz");
-        userDto.setRoleName(roleName != null ? roleName : "CUSTOMER");
+        String email = phone.contains("@") ? phone : phone + "@chuosokoni.ac.tz";
+        AuthAPIService.RegisterRequest req = new AuthAPIService.RegisterRequest(fullName, email, password, phone, roleName != null ? roleName : "CUSTOMER");
 
-        authAPIService.register(userDto).enqueue(new Callback<UserDto>() {
+        authAPIService.register(req).enqueue(new Callback<Map<String, Object>>() {
             @Override
-            public void onResponse(@NonNull Call<UserDto> call, @NonNull Response<UserDto> response) {
+            public void onResponse(@NonNull Call<Map<String, Object>> call, @NonNull Response<Map<String, Object>> response) {
                 isLoading.setValue(false);
                 if (response.isSuccessful()) {
                     registerSuccess.setValue(true);
                 } else {
-                    errorMessage.setValue("Registration failed. Try again.");
+                    try {
+                        String err = response.errorBody() != null ? response.errorBody().string() : "Registration failed. Try again.";
+                        errorMessage.setValue("Registration failed: " + err);
+                    } catch (Exception e) {
+                        errorMessage.setValue("Registration failed. Try again.");
+                    }
                 }
             }
 
             @Override
-            public void onFailure(@NonNull Call<UserDto> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<Map<String, Object>> call, @NonNull Throwable t) {
                 isLoading.setValue(false);
                 errorMessage.setValue("Network error: " + t.getMessage());
             }

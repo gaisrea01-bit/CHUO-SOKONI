@@ -52,32 +52,6 @@
                         android:textSize="14sp" />
                 </LinearLayout>
 
-                <!-- Notification Bell with Badge -->
-                <FrameLayout
-                    android:layout_width="44dp"
-                    android:layout_height="44dp">
-
-                    <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:layout_gravity="center"
-                        android:contentDescription="@null"
-                        android:src="@drawable/baseline_notifications_24"
-                        app:tint="@color/logo_navy" />
-
-                    <TextView
-                        android:id="@+id/tvNotifBadgeCount"
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:layout_gravity="top|end"
-                        android:background="@drawable/shape_dot_active"
-                        android:gravity="center"
-                        android:text="2"
-                        android:textColor="@color/logo_navy"
-                        android:textSize="10sp"
-                        android:textStyle="bold"
-                        android:visibility="visible" />
-                </FrameLayout>
             </LinearLayout>
 
             <!-- Image Banner Card containing an ImageView -->
